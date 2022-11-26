@@ -1,7 +1,7 @@
 import React from 'react';
 import {NativeBaseProvider, StatusBar} from 'native-base';
 import {NavigationContainer} from '@react-navigation/native';
-import RootNavigation from './src/assets/RootNavigation';
+import RootNavigation from './src/RootNavigation';
 
 const GlobalContainer = ({children}) => {
   return (
