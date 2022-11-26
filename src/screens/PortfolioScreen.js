@@ -1,12 +1,16 @@
 import React from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Box, Heading, VStack} from 'native-base';
 import Masthead from '../components/Masthead';
 import SideBarToggle from '../components/SideBarToggle';
 import imgSource from '../images/portfolioImg.png';
 import {portfolioData} from '../constants';
 import FlatListBox from '../components/FlatListBox';
+import WebViewScreen from './WebViewScreen';
 
-const PortfolioScreen = () => {
+const Stack = createNativeStackNavigator();
+
+const Home = () => {
   return (
     <Box flex={1}>
       <Masthead imgSource={imgSource} title={'作品集'}>
@@ -22,6 +26,19 @@ const PortfolioScreen = () => {
         <FlatListBox data={portfolioData} />
       </VStack>
     </Box>
+  );
+};
+
+const PortfolioScreen = () => {
+  return (
+    <Stack.Navigator initialRouteName="PortfolioHome">
+      <Stack.Screen
+        name="PortfolioHome"
+        component={Home}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen name="PortfolioWebView" component={WebViewScreen} />
+    </Stack.Navigator>
   );
 };
 
