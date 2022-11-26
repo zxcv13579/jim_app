@@ -1,5 +1,6 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import SideBar from './components/SideBar';
 import HomeScreen from './screens/HomeScreen';
 import WebViewScreen from './screens/WebViewScreen';
 const Drawer = createDrawerNavigator();
@@ -7,10 +8,10 @@ const Drawer = createDrawerNavigator();
 const RootNavigation = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="webview"
-      // drawerContent={props => <SideBar {...props} />}
+      initialRouteName="Home"
+      drawerContent={props => <SideBar {...props} />}
       screenOptions={{
-        headerShown: true,
+        headerShown: false,
       }}>
       <Drawer.Screen name="Home" component={HomeScreen} />
       <Drawer.Screen name="webview" component={WebViewScreen} />

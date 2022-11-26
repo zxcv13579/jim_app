@@ -1,6 +1,8 @@
 import React from 'react';
-import {Box, Text} from 'native-base';
-
+import {Box} from 'native-base';
+import imgSource from '../images/homeImg.png';
+import Masthead from '../components/Masthead';
+import SideBarToggle from '../components/SideBarToggle';
 const HomeScreen = () => {
   return (
     <Box
@@ -11,7 +13,9 @@ const HomeScreen = () => {
       _dark={{
         bg: 'coolGray.800',
       }}>
-      <Text>HomeScreen</Text>
+      <Masthead imgSource={imgSource}>
+        <SideBarToggle />
+      </Masthead>
     </Box>
   );
 };
