@@ -16,8 +16,11 @@ const FlatListBox = ({data}) => {
   return (
     <FlatList
       data={data}
+      keyExtractor={item => item.title}
+      // 滾動條
+      showsHorizontalScrollIndicator={false}
       renderItem={({item}) => (
-        <VStack w={300} p={5}>
+        <VStack w={300} mr={4}>
           <TouchableOpacity
             onPress={() => navigation.navigate('PortfolioWebView')}>
             <Image
