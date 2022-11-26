@@ -1,17 +1,20 @@
 import React from 'react';
-import {Box, NativeBaseProvider, StatusBar, Text} from 'native-base';
+import {NativeBaseProvider, StatusBar} from 'native-base';
+import {NavigationContainer} from '@react-navigation/native';
+import RootNavigation from './src/assets/RootNavigation';
 
 const GlobalContainer = ({children}) => {
-  return <NativeBaseProvider>{children}</NativeBaseProvider>;
+  return (
+    <NavigationContainer>
+      <NativeBaseProvider>{children}</NativeBaseProvider>
+    </NavigationContainer>
+  );
 };
-
 const App = () => {
   return (
     <GlobalContainer>
-      <Box safeArea>
-        <Text>Hello NativeBase</Text>
-        <StatusBar />
-      </Box>
+      <RootNavigation />
+      <StatusBar />
     </GlobalContainer>
   );
 };
