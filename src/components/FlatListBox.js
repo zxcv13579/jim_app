@@ -34,6 +34,7 @@ const FlatListBox = ({data}) => {
               resizeMode="contain"
               source={item.imgSource}
               alt={item.title}
+              borderRadius={10}
             />
             <Text>{item.title}</Text>
           </TouchableOpacity>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Box, Heading, VStack} from 'native-base';
+import {Box, VStack, useColorModeValue} from 'native-base';
 import Masthead from '../components/Masthead';
 import SideBarToggle from '../components/SideBarToggle';
 import imgSource from '../images/portfolioImg.png';
@@ -16,13 +16,14 @@ const Home = () => {
       <Masthead imgSource={imgSource} title={'作品集'}>
         <SideBarToggle />
       </Masthead>
-      <VStack alignItems="center" p={4}>
-        <Heading
-          size={'xl'}
-          borderBottomWidth="10px"
-          borderBottomColor="amber.500">
-          WEBSITE
-        </Heading>
+      <VStack
+        flex={1}
+        alignItems="center"
+        p={4}
+        mt={-4}
+        borderTopLeftRadius={20}
+        borderTopRightRadius={20}
+        bg={useColorModeValue('warmGray.50', 'warmGray.900')}>
         <FlatListBox data={portfolioData} />
       </VStack>
     </Box>

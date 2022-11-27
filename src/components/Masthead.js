@@ -18,7 +18,7 @@ const Masthead = ({imgSource, title, children}) => {
       {children}
       <Box flex={1} />
       {title && (
-        <Heading color="white" p={4} size="xl">
+        <Heading color="white" p={4} size="xl" mb={2}>
           {title}
         </Heading>
       )}
