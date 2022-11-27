@@ -31,13 +31,21 @@ const Home = () => {
 
 const PortfolioScreen = () => {
   return (
-    <Stack.Navigator initialRouteName="PortfolioHome">
+    <Stack.Navigator
+      initialRouteName="PortfolioHome"
+      screenOptions={{headerTitleAlign: 'center'}}>
       <Stack.Screen
         name="PortfolioHome"
         component={Home}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="PortfolioWebView" component={WebViewScreen} />
+      <Stack.Screen
+        name="PortfolioWebView"
+        component={WebViewScreen}
+        options={({route}) => ({
+          title: route.params.title,
+        })}
+      />
     </Stack.Navigator>
   );
 };

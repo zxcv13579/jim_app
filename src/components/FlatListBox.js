@@ -22,7 +22,12 @@ const FlatListBox = ({data}) => {
       renderItem={({item}) => (
         <VStack w={300} mr={4}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('PortfolioWebView')}>
+            onPress={() =>
+              navigation.navigate('PortfolioWebView', {
+                title: item.title,
+                uri: item.uri,
+              })
+            }>
             <Image
               w="100%"
               h={height}

@@ -1,14 +1,9 @@
 import React from 'react';
 import {WebView} from 'react-native-webview';
 
-const WebViewScreen = () => {
-  return (
-    <WebView
-      source={{uri: 'https://infinite.red'}}
-      style={{marginTop: 20}}
-      startInLoadingState
-    />
-  );
+const WebViewScreen = ({route}) => {
+  const {uri} = route.params;
+  return <WebView source={{uri}} startInLoadingState />;
 };
 
 export default WebViewScreen;
