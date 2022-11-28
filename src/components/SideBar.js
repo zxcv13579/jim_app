@@ -17,10 +17,6 @@ const SideBar = ({state, navigation}) => {
     navigation.navigate('Home');
   }, [navigation]);
 
-  const handlePressAbout = useCallback(() => {
-    navigation.navigate('About');
-  }, [navigation]);
-
   const handlePressPortfolio = useCallback(() => {
     navigation.navigate('Portfolio');
   }, [navigation]);
@@ -53,11 +49,7 @@ const SideBar = ({state, navigation}) => {
           onPress={handlePressHome}>
           Home
         </SideBarButton>
-        <SideBarButton
-          active={currentRoute === 'About'}
-          onPress={handlePressAbout}>
-          About
-        </SideBarButton>
+
         <SideBarButton
           active={currentRoute === 'Portfolio'}
           onPress={handlePressPortfolio}>

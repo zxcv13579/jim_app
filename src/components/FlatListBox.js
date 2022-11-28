@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {responsiveImgHeight} from '../utils';
-import {FlatList, Text, Image, VStack} from 'native-base';
+import {FlatList, Text, Image, Box, Center} from 'native-base';
 import {useNavigation} from '@react-navigation/native';
 
 const FlatListBox = ({data}) => {
@@ -16,31 +16,36 @@ const FlatListBox = ({data}) => {
   return (
     <FlatList
       data={data}
+      pt={4}
+      flex={1}
       keyExtractor={item => item.title}
       // 滾動條
-      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
       renderItem={({item}) => (
-        <VStack w={300} mr={4}>
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate('PortfolioWebView', {
-                title: item.title,
-                uri: item.uri,
-              })
-            }>
-            <Image
-              w="100%"
-              h={height}
-              resizeMode="contain"
-              source={item.imgSource}
-              alt={item.title}
-              borderRadius={10}
-            />
-            <Text>{item.title}</Text>
-          </TouchableOpacity>
-        </VStack>
+        <Center>
+          <Box w={300} mb={4}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('PortfolioWebView', {
+                  title: item.title,
+                  uri: item.uri,
+                })
+              }>
+              <Image
+                w="100%"
+                h={height}
+                resizeMode="contain"
+                source={item.imgSource}
+                alt={item.title}
+                borderRadius={10}
+              />
+              <Text fontWeight="bold" fontSize="lg">
+                {item.title}
+              </Text>
+            </TouchableOpacity>
+          </Box>
+        </Center>
       )}
-      horizontal
     />
   );
 };
